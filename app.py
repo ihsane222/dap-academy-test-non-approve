@@ -145,9 +145,7 @@ def page_home(modules):
 
 
 # Mapping module number → fichier vidéo local
-VIDEO_FILES = {
-    "01": "videos/DAPModule01.mp4",
-}
+VIDEO_FILES = {str(i).zfill(2): f"videos/DAPModule{str(i).zfill(2)}.mp4" for i in range(1, 20)}
 
 # ─── Page : Module ────────────────────────────────────────────────────────────
 def page_module(module):
