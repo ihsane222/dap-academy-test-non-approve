@@ -144,11 +144,23 @@ def page_home(modules):
                     st.rerun()
 
 
+# Mapping module number → fichier vidéo local
+VIDEO_FILES = {
+    "01": "videos/DAPModule01.mp4",
+}
+
 # ─── Page : Module ────────────────────────────────────────────────────────────
 def page_module(module):
     if st.button("← Retour aux modules"):
         st.session_state["page"] = "home"
         st.rerun()
+
+    # Lecteur vidéo si une animation existe pour ce module
+    video_path = VIDEO_FILES.get(module["number"])
+    if video_path and os.path.exists(video_path):
+        st.markdown("### 🎬 Animation du module")
+        st.video(video_path)
+        st.markdown("---")
 
     st.markdown(content_without_quiz(module["content"]))
 
