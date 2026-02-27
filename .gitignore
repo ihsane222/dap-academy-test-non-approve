@@ -3,3 +3,6 @@ __pycache__/
 .env
 token.json
 credentials.json
+.streamlit/secrets.toml
+*.json
+printable/
